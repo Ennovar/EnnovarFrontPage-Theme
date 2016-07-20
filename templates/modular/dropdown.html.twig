@@ -1,0 +1,14 @@
+<li class="dropdown">
+<a class="dropdown-toggle dropdown-header" data-toggle="dropdown" href="#">
+    {{dropdownText}} <i class="fa fa-chevron-down"></i>
+</a>
+<ul class="dropdown-menu">
+    {% for dropdown in dropdowns %}
+        <li>
+            <a class="dropdown-item {{"#" in dropdown.target ? "smoothScroll" : "" }}" href="{{ dropdown.target }}">
+                {{ dropdown.text }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+</li>

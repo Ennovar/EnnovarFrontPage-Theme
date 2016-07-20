@@ -1,0 +1,45 @@
+<!-- Join Team Ennovar Section -->
+<section id="join">
+    {# Page Variables
+        image: Image to display to the right of the text
+        title: Section Title
+        text:  Text to display in the big center-aligned blurb
+        #}
+    {% set image = header.image %}
+    {% set title = header.title %}
+    {% set text  = content %}
+    <div class="container-fluid">
+        <!-- Description and Image -->
+        <div class="row row-centered">
+            <!-- Description-->
+            <div class="col-md-5 col-md-offset-1 col-sm-12 wow fadeInLeft animated" data-wow-delay="0.6s" style="visibility:visible; animation-delay: 0.6s; animation-name:fadeInLeft;">
+                <div class="section-title">
+                    <h1 class="heading">{{title}}</h1>
+                    <p>{{text}}</p>
+                </div>
+            </div>
+            <!--/Description-->
+
+            <!-- Join Image -->
+            <div class="col-md-6 col-sm-10 wow fadeInRight animated col-centered" data-wow-delay="0.9s" style="visibility: visible; animation-delay: 0.9s; animation-name: fadeInRight;">
+                    <img src="{{page.media[image].url}}"></img>
+            </div>
+            <!--/Join Image -->
+        </div>
+        <!--/Description and Image -->
+
+        <!-- Discover More Button -->
+        <div class="row-centered">
+            <div class="col-md-1 col-centered">
+                <a class="discover-more wow fadeInRight animated" data-wow-delay="0.9s" style="visibility: visible; animation-delay:0.9s; animation-name: fadeInRight;" href="{{page.header.discover_more_link}}">
+                    <div>
+                        <span>Discover</span>
+                        <span>More</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!--/Discover More Button -->
+    </div>
+</section>
+<!--/Join Team Ennovar Section -->

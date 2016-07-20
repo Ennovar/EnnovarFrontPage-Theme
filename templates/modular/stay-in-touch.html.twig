@@ -1,0 +1,53 @@
+<!-- stay-in-touch Section -->
+<section id="stay-in-touch">
+
+    {# Page Variables:
+        title: Section Title
+        infos: List containing the data for creating the stay in touch boxes
+        delays: Delays for starting the animations on each of the stay in touch boxes
+        fadeStyles: How to fade each box
+        #}
+    {% set title  = header.title %}
+    {% set infos = header.infos %}
+    {% set delays = ["0.3s", "0.6s", "0.9s"] %}
+    {% set fadeStyles = ["fadeInLeft", "fadeInUp", "fadeInRight"] %}
+
+    <div class="container-fluid">
+        <div class="row row-centered">
+            <!-- Section Title-->
+            <div class="col-md-12 col-sm-12">
+                <div class="section-title">
+                    <h4 class="heading">{{title}}</h4>
+                </div>
+            </div>
+            <!--/Section Title-->
+
+            <!-- Infos -->
+            {% for info in infos %}
+                {% set delay = delays[loop.index0 % 3] %}
+                {% set fadeStyle = fadeStyles[loop.index0 % 3] %}
+                {% set img  = info.img %}
+                {% set name = info.name %}
+                {% set url = info.url %}
+                {% if loop.index0 % 3 == 0 and loop.index0 %}
+                    </div>
+                    <div class="row row-centered">
+                {% endif %}
+                <!-- Info Box -->
+                <div class="col-centered col-md-4 col-sm-6 wow {{fadeStyle}} animated" data-wow-delay="{{delay}}" style="visibility: visible; animation-delay: {{delay}}; animation-name: {{fadeStyle}};">
+                    <div class="stay-in-touch-wrapper">
+                        <a href="{{url}}">
+                            <div class="stay-in-touch-des">
+                                <h2>{{name}}</h2>
+                            </div>
+                            <figure class="tint"><img class="img-responsive" alt="stay-in-touch" src="{{page.media[img].url}}"></img></figure>
+                        </a>
+                    </div>
+                </div>
+                <!--/Info Box -->
+            {% endfor %}
+            <!--/Infos -->
+        </div>
+    </div>
+</section>
+<!--/stay-in-touch Section -->

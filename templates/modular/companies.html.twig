@@ -1,0 +1,28 @@
+<!-- companies Section -->
+<section id="companies">
+    <!-- List of logos to display -->
+    {% set logos = page.media.images %}
+
+    <!-- Container for the title of the section and the carousel of company logos -->
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+                <div class="heading">
+                    <h1 class="title">{{page.header.title}}</h1>
+                </div>
+                {{content}}
+				<!-- Companies Owl Carousel -->
+				<div id="owl-testimonial" class="owl-carousel">
+                    {% for logo in logos %}
+					<div class="item col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 wow fadeInUp" data-wow-delay="1.3s">
+						<img src="{{logo.url}}" alt="{{logo.url}}">
+					</div>
+                    {% endfor %}
+				</div>
+                <!--/Companies Owl Carousel -->
+			</div>
+		</div>
+	</div>
+    <!--/Container for the title of the section and the carousel of company logos -->
+</section>
+<!--/companies Section -->

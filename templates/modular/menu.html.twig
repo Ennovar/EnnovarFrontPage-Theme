@@ -1,0 +1,48 @@
+<!-- navigation section -->
+<div class="navbar navbar-default navbar-fixed-top sticky-navigation" role="navigation" style="opacity:1;">
+    <div class="container">
+        <!-- Navbar Header & Logo -->
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon icon-bar"></span>
+                <span class="icon icon-bar"></span>
+                <span class="icon icon-bar"></span>
+            </button>
+            <a href="#home" class="smoothScroll navbar-brand">
+                <img src="{{page.media[page.header.logo].url}}"></img>
+            </a>
+        </div>
+        <!--/Navbar Header & Logo -->
+
+        <!-- Navbar Menu Items -->
+        <div class="collapse navbar-collapse">
+            <!-- Search Bar & Contact/Blog links -->
+            <div class="search-outer">
+                <div class="search-inner">
+                    <input class="text" id="search" type="text"></input>
+                    <i class="fa fa-search"></i>
+                    <a href="#contact" class="smoothScroll" >Contact</a>
+                    <a href="{{page.header.blog_url}}">Blog</a>
+                </div>
+            </div>
+            <!--/Search Bar & Contact/Blog links -->
+
+            <!-- Navbar Items -->
+            <ul class="nav navbar-nav navbar-right main-navigation">
+                <!-- Menu Items/Dropdowns -->
+                {% for item in page.header.items %}
+                    {% if item.dropdowns|count == 0 %}
+                        <li><a class="{{ "#" in item.target ? "smoothScroll" : "" }}" href="{{item.target}}">{{item.text}}</a></li>
+                    {% else %}
+                        {% include 'modular/dropdown.html.twig' with {'dropdownText': item.text, 'dropdowns': item.dropdowns} %}
+                    {% endif %}
+                {% endfor %}
+                <!--/Menu Items/Dropdowns -->
+            </ul>
+            <!--/Navbar Items -->
+        </div>
+        <!--/Navbar Menu Items -->
+
+    </div>
+</div>
+<!--/navigation section -->

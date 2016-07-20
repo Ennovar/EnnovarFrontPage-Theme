@@ -1,0 +1,37 @@
+<!-- stories Section -->
+<section id="stories">
+    {% set title = page.title%}
+    {% set stories = page.header.stories %}
+	<div class="container-fluid">
+		<div class="row row-centered">
+            <!-- Section Title -->
+			<div class="col-md-12 col-sm-12">
+				<div class="section-title">
+					<h1 class="heading bold">{{title}}</h1>
+				</div>
+			</div>
+            <!--/Section Title -->
+
+            <!-- Customer Stories boxes -->
+            {% for story in stories %}
+                {% set story_title = story.title %}
+                {# Close up a row after 4 stories #}
+                {% if loop.index0 % 4 == 0  and loop.index0%}
+                    </div>
+                    <div class="row row-centered">
+                {% endif %}
+
+                <!-- Customer Story -->
+                <div class="col-md-3 col-sm-6 col-centered">
+                    <div class="story wow bounceIn" data-wow-delay="0.3s">
+                            <h3>{{story_title}}</h3>
+                    </div>
+                </div>
+                <!--/Customer Story -->
+            {% endfor %}
+            <!--/Customer Stories boxes -->
+
+		</div>
+	</div>		
+</section>
+<!--/stories Section -->

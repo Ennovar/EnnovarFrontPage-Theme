@@ -1,0 +1,49 @@
+<!-- Services Section -->
+<section id="service" style="background-image: url('{{page.media[page.header.logo].url}}'); background-position: center; background-repeat: no-repeat; background-size: 25%;">
+    {% set items = page.header.items %}
+    <div class="container-fluid">
+        <!-- Section Title -->
+        <div class="col-md-12 col-sm-12">
+            <div class="section-title">
+                <h1 class="heading">{{page.header.title}}</h1>
+            </div>
+        </div>
+        <!--/Section Title -->
+
+        <!-- First Row -->
+        <div class="row first-row">
+            {% for item in items[0:2] %}
+                {% include "modular/feature-item.html.twig" with {
+                    "offsets": loop.index0 == 0 ? "col-md-offset-1 col-sm-offset-0" : "col-md-offset-2 col-sm-offset-0",
+                    "imgUrl" : page.media[item.img].url,
+                    "itemTitle": item.title,
+                    "itemText" : item.text
+                } %}
+            {% endfor %}
+        </div>
+        <!--/First Row -->
+
+        <!-- Second Row -->
+        <div class="row second-row">
+            {% for item in items[2:2] %}
+                {% include "modular/feature-item.html.twig" with {
+                    "offsets": loop.index0 == 0 ? "col-md-offset-1 col-sm-offset-0" : "col-md-offset-2 col-sm-offset-0",
+                    "imgUrl": page.media[item.img].url,
+                    "itemTitle": item.title,
+                    "itemText": item.text
+                } %}
+            {% endfor %}
+        </div>
+        <!--/Second Row -->
+
+        <!-- Third Row, Last Item -->
+        {% include "modular/feature-item.html.twig" with {
+            "extraClass": "col-centered",
+            "imgUrl": page.media[items[5].img].url,
+            "itemTitle": items[5].title,
+            "itemText" : items[5].text
+        } %}
+        <!--/Third Row, Last Item -->
+        </div>
+</section>
+<!--/Services Section -->
